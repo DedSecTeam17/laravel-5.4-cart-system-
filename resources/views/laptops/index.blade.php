@@ -28,13 +28,13 @@
                     <thead class="bg-dark" style="color: white">
                     <tr>
                         <th>#</th>
-                        <th>name</th>
-                        <th>weight</th>
-                        <th>quantity</th>
-                        <th>size</th>
-                        <th>color</th>
-                        <th>price</th>
-                        <th>image</th>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Quantity</th>
+                        <th>Size</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Image</th>
                         <th>os</th>
                         <th>created at</th>
                         <th>updated at</th>

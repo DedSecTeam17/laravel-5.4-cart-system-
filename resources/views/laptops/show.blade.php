@@ -27,11 +27,12 @@
 
             <div class="jumbotron">
                 <ul>
-                    <li>Display Size:15.6 inches</li>
-                    <li> Computer Memory Size:4 GB</li>
-                    <li> Hard Disk Size:500.0 GB</li>
-                    <li> Operating System:{{$laptop->os}}</li>
-                    <li> Processor Count:</li>
+                    <li> {{'CPU :'.$laptop->hardware->cpu}}</li>
+                    <li> {{'GPU :'.$laptop->hardware->gpu}}</li>
+                    <li> {{'RAM :'.$laptop->hardware->ram}}</li>
+                    <li> {{'HD  :'.$laptop->hardware->hd}}</li>
+                    <li> {{'SSD :'.$laptop->hardware->ssd}}</li>
+                    <li> {{'Screen quality :'.$laptop->hardware->screen_quality}}</li>
                 </ul>
 
             </div>

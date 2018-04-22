@@ -23,28 +23,28 @@
             <div class="card">
                 <div class="card-header">
                     {!! Form::model($laptop,['route'=>['laptops.update',$laptop->id],'method'=>'PUT','files'=>'true','data-parsley-validate'=>'']) !!}
-                    {{Form::label('name','laptop name')}}
+                    {{Form::label('name','Laptop name')}}
                     {{Form::text('name',  null,['class'=>'form-control','style','required'=>'','minlength'=>"10"])}}
 
-                    {{Form::label('weight','weight')}}
+                    {{Form::label('weight','Weight')}}
                     {{Form::text('weight',  null,['class'=>'form-control','style','required'=>'','data-parsley-type'=>'number'])}}
 
-                    {{Form::label('quantity','quantity')}}
+                    {{Form::label('quantity','Quantity')}}
                     {{Form::text('quantity',  null,['class'=>'form-control','style','required'=>'','data-parsley-type'=>'number'])}}
 
-                    {{Form::label('size','size')}}
+                    {{Form::label('size','Size')}}
                     {{Form::text('size',  null,['class'=>'form-control','style','required'=>'','data-parsley-type'=>'number'])}}
 
-                    {{Form::label('color','color ')}}
+                    {{Form::label('color','Color ')}}
                     {{Form::text('color',  null,['class'=>'form-control','style','required'=>''])}}
 
-                    {{Form::label('price','price')}}
+                    {{Form::label('price','Price')}}
                     {{Form::text('price',  null,['class'=>'form-control','style','required'=>'','data-parsley-type'=>'number'])}}
 
                     {{Form::label('os','OS')}}
                     {{Form::text('os',  null,['class'=>'form-control','style','required'=>''])}}
 
-                    {{Form::label('image','Choose Your laptop image')}}
+                    {{Form::label('image','Choose Your laptop Image')}}
                     {{Form::file('image')}}
                     {{Form::submit('Add',array('class'=>'btn btn-success btn-lg btn-block mt-5'))}}
                     {!! Form::close() !!}
