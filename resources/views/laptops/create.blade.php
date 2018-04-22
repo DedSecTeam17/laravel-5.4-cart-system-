@@ -51,6 +51,23 @@
                         </select>
                     </div><br>
 
+                    <div class="input-group mt-5">
+                        <select class="custom-select  from-control" name="hardware_id" >
+                            @foreach($hardwares as  $hardware)
+                                <option value="{{$hardware->id}}">
+                                    {{$hardware->cpu}},
+                                    {{$hardware->gpu}},
+                                    {{$hardware->ram}},
+                                    {{$hardware->hd}},
+                                    {{$hardware->ssd}},
+                                    {{$hardware->screen_quality}}
+
+                                </option>
+
+                            @endforeach
+                        </select>
+                    </div><br>
+
 
 
                     {{Form::label('image','Choose Your laptop image')}}

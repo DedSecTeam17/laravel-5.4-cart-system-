@@ -17,6 +17,12 @@ Route::get('/helps',"PagesController@getHelps");
 
 Route::get('/contact', "PagesController@getContact");
 
+Route::get('/itemshelf', "PagesController@getAllItem");
+
+
 Route::resource('laptops','LaptopController');
+
+Route::resource('hardware','HardWareController');
+
 
 Route::resource('categories','CategoriesController');

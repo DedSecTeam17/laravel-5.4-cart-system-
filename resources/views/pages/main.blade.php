@@ -2,7 +2,8 @@
 <head>
     @include('partial._header')
 </head>
-<body>
+<body
+>
 {{--navigation bar area --}}
 <div class="container">
     @include('partial._nav')

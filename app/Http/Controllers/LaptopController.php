@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\HardWare;
 use App\Laptop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -33,7 +34,8 @@ class LaptopController extends Controller
     public function create()
     {
         $categories=Category::all();
-        return view('laptops.create')->withCategories($categories);
+        $hardwares=HardWare::all();
+        return view('laptops.create')->withCategories($categories)->withHardwares($hardwares);
     }
 
     /**
@@ -56,7 +58,8 @@ class LaptopController extends Controller
                 'price'=>'required | integer',
                 'os'=>'required',
                 'images'=>'images',
-                'category_id'=>'required'
+                'category_id'=>'required',
+                'hardware_id'=>'required'
             ]);
         $laptop=new Laptop();
 
@@ -75,6 +78,7 @@ class LaptopController extends Controller
         $laptop->price=$request->price;
         $laptop->os=$request->os;
         $laptop->category_id=$request->category_id;
+        $laptop->hardware_id=$request->hardware_id;
 
         $laptop->save();
 
@@ -128,6 +132,8 @@ class LaptopController extends Controller
             'price'=>'required | integer',
             'os'=>'required',
             'images'=>'images',
+            'category_id'=>'required',
+            'hardware_id'=>'required'
         ]);
         $laptop=Laptop::find($id);
 
@@ -147,6 +153,10 @@ class LaptopController extends Controller
         $laptop->color=$request->color;
         $laptop->price=$request->price;
         $laptop->os=$request->os;
+        $laptop->hardware_id=$request->hardware_id;
+        $laptop->category_id=$request->category_id;
+
+
 
         $laptop->save();
 

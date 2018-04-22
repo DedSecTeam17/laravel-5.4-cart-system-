@@ -22,7 +22,8 @@
 
             <div class="card">
                 <div class="card-header">
-                    {!! Form::model($categoty,['route'=>['categories.update',$categoty->id],'method'=>'PUT','files'=>'true','data-parsley-validate'=>'']) !!}
+
+                          {!! Form::model($categoty,['route'=>['categories.update',$categoty->id],'method'=>'PUT','files'=>'true','data-parsley-validate'=>'']) !!}
                     {{Form::label('name','Category name')}}
                     {{Form::text('name',  null,['class'=>'form-control','style','required'=>'','minlength'=>"6"])}}
                     {{Form::submit('Update',array('class'=>'btn btn-primary btn-lg btn-block mt-5'))}}
