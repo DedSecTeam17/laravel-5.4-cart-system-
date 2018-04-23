@@ -36,8 +36,8 @@
                         <th>Price</th>
                         <th>Image</th>
                         <th>os</th>
-                        <th>created at</th>
-                        <th>updated at</th>
+                        <th>created At</th>
+                        <th>updated At</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
