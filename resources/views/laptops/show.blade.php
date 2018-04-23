@@ -24,7 +24,6 @@
             <img src="{{asset('img/'.$laptop->image)}}" class="img-thumbnail" width="50" height="70">
         </div>
         <div class="col-md-4 mt-5">
-
             <div class="jumbotron">
                 <ul>
                     <li> {{'CPU :'.$laptop->hardware->cpu}}</li>
@@ -34,16 +33,7 @@
                     <li> {{'SSD :'.$laptop->hardware->ssd}}</li>
                     <li> {{'Screen quality :'.$laptop->hardware->screen_quality}}</li>
                 </ul>
-
             </div>
-
-
         </div>
-
-
     </div>
-
-
-
-
 @endsection

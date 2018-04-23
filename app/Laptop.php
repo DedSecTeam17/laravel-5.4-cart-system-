@@ -15,4 +15,7 @@ class Laptop extends Model
     public  function  hardware(){
         return $this->belongsTo('App\HardWare');
     }
+    public  function tag(){
+        return $this->belongsToMany('App\Tag');
+    }
 }

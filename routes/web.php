@@ -26,3 +26,5 @@ Route::resource('hardware','HardWareController');
 
 
 Route::resource('categories','CategoriesController');
+
+Route::resource('tags','TagController');
