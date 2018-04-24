@@ -1,7 +1,7 @@
 @extends('pages.main')
 
 
-@section('title','Show Your item')
+@section('title','SHOW All Item for user')
 
 @section('style')
 
