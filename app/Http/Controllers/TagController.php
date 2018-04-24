@@ -16,7 +16,8 @@ class TagController extends Controller
     public function index()
     {
 
-        return view('tags.index');
+        $tags=Tag::all();
+        return view('tags.index')->withTags($tags);
         //
     }
 
@@ -50,6 +51,8 @@ class TagController extends Controller
         $tag=new Tag();
 
         $tag->name=$request->name;
+
+        $tag->save();
 
         Session::flash('success','new tag has been added');
 

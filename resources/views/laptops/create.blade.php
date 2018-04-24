@@ -5,6 +5,8 @@
 
     @section('style')
     {!! Html::style('css/parsley.css') !!}
+    {!! Html::style('css/select2.min.css') !!}
+
     @endsection
 
 @section('content')
@@ -70,6 +72,19 @@
 
 
 
+                    {{Form::label('tags','Tags :')}}
+
+                    <div class="input-group mb-3">
+                        <select class="custom-select select2_mult from-control" name="tags[]" multiple="multiple">
+                            @foreach($tags as  $tag)
+                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+
+                        </select>
+                    </div><br>
+
+
+
                     {{Form::label('image','Choose Your laptop image')}}
                     {{Form::file('image')}}
 
@@ -98,4 +113,9 @@
 
 @section('js')
        {!! Html::script('js/parsley.min.js')  !!}
+       {!! Html::script('js/select2.min.js')  !!}
+
+       <script>
+           $(".select2_mult").select2();
+       </script>
     @endsection

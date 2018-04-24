@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\HardWare;
 use App\Laptop;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,8 @@ class LaptopController extends Controller
     {
         $categories=Category::all();
         $hardwares=HardWare::all();
-        return view('laptops.create')->withCategories($categories)->withHardwares($hardwares);
+        $tags=Tag::all();
+        return view('laptops.create')->withCategories($categories)->withHardwares($hardwares)->withTags($tags);
     }
 
     /**
@@ -79,8 +81,9 @@ class LaptopController extends Controller
         $laptop->os=$request->os;
         $laptop->category_id=$request->category_id;
         $laptop->hardware_id=$request->hardware_id;
-
         $laptop->save();
+        $laptop->tag()->sync($request->tags,false);
+
 
         Session::flash('sucess','your  item has been added into data base');
 
@@ -160,6 +163,9 @@ class LaptopController extends Controller
 
         $laptop->save();
 
+        $tags = $request->input('tags', []);
+        $laptop->tags()->sync($tags, true);
+
         Session::flash('sucess','your  item has been added into data base');
 
         return redirect()->route('laptops.show',$laptop->id);
@@ -177,11 +183,14 @@ class LaptopController extends Controller
         $laptop=Laptop::find($id);
 
         Storage::delete($laptop->image);
+        $laptop->tag()->detach();
+
 
         $laptop->delete();
 
-        Session::flash('success','item has been deleted');
 
+
+        Session::flash('success','item has been deleted');
 
         return redirect()->route('laptops.index');
         //
