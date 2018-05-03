@@ -4,8 +4,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-md bg-back navbar-dark fixed-top">
-    <a href="#" class="navbar-brand"><i class="fab fa-pied-piper-alt"></i>Sync Code </a>
+<nav class="navbar navbar-expand-md bg-secondary navbar-dark fixed-top">
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myitem">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,9 +36,11 @@
                         <a href="{{route('categories.index')}}" class="dropdown-item">all categories</a>
                         <a href="{{route('hardware.index')}}" class="dropdown-item">all hardware</a>
 
-
-
-
+                    {{--ITEM OPERATIONS --}}
+                        <a href="{{route('laptops.create')}}" class="dropdown-item">create new item</a>
+                        <a href="{{route('categories.create')}}" class="dropdown-item">create new category</a>
+                        <a href="{{route('hardware.create')}}" class="dropdown-item">create new hardware</a>
+                        <a href="{{route('admin.index')}}" class="dropdown-item">view dashboard</a>
                         <a href="{{ route('logout') }}" class="dropdown-item"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">

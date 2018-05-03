@@ -10,9 +10,7 @@
         .checked {
             color: gold;
         }
-
     </style>
-
 @endsection
 
 
@@ -35,8 +33,6 @@
                 <a id="{{$laptop->id}}" href="{{route('laptops.show',$laptop->id)}}" onmouseenter="mouse_enter('{{$laptop->id}}')"
                    onmouseleave="moues_leave('{{$laptop->id}}')">
                     <b>   {{$laptop->name}}</b></a>
-
-
                 <small>by HP</small>
 
                 <p>{{$laptop->price.'$'}}<span>(86 used & new offers)</span></p>

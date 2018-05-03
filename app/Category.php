@@ -13,4 +13,7 @@ class Category extends Model
     public  function  laptop(){
         return $this->hasMany('App\Laptop');
     }
+    public function cart(){
+        $this->belongsToMany('App\Cart');
+    }
 }

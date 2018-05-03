@@ -33,6 +33,26 @@
                     <li> {{'SSD :'.$laptop->hardware->ssd}}</li>
                     <li> {{'Screen quality :'.$laptop->hardware->screen_quality}}</li>
                 </ul>
+
+
+                {{Form::open(['route'=>'carts.store','method'=>'POST'])}}
+                {{Form::submit('Add to Cart',['class'=>'btn btn-success btn-lg btn-block'])}}
+                <div class="input-group mt-5">
+                    <select class="custom-select  from-control" name="quantity" >
+                       @for($i=0; $i<10; $i++)
+                            <option value="{{$i}}">
+                                {{$i}}
+                            </option>
+
+                           @endfor
+                    </select>
+                    {{--hidden data--}}
+                    <input type="hidden" name="laptop_id" value="{{$laptop->id}}">
+                    <input type="hidden" name="category_id" value="{{$laptop->category->id}}">
+                    <input type="hidden" name="hardware_id" value="{{$laptop->hardware->id}}">
+                </div><br>
+                {{Form::close()}}
+
             </div>
         </div>
     </div>

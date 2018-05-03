@@ -26,6 +26,13 @@ Route::get('/admin', "AdminController@adminPanel")->name('admin.index');
 
 Route::resource('laptops','LaptopController');
 
+Route::resource('carts','CartController',['except'=>'store']);
+
+
+Route::post('carts/store/','CartController@store')->name('carts.store');
+
+
+
 Route::resource('hardware','HardWareController');
 
 
@@ -36,3 +43,11 @@ Route::resource('tags','TagController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//|        | POST      | carts                      | carts.store        | App\Http\Controllers\CartController@store                              | web          |
+//|        | GET|HEAD  | carts                      | carts.index        | App\Http\Controllers\CartController@index                              | web          |
+//|        | GET|HEAD  | carts/create               | carts.create       | App\Http\Controllers\CartController@create                             | web          |
+//|        | DELETE    | carts/{cart}               | carts.destroy      | App\Http\Controllers\CartController@destroy                            | web          |
+//|        | PUT|PATCH | carts/{cart}               | carts.update       | App\Http\Controllers\CartController@update                             | web          |
+//|        | GET|HEAD  | carts/{cart}               | carts.show         | App\Http\Controllers\CartController@show                               | web          |
+//|        | GET|HEAD  | carts/{cart}/edit          | carts.edit

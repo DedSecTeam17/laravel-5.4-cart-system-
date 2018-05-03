@@ -4,21 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Laptop extends Model
+class Cart extends Model
 {
     //
-    
-    public  function  category(){
-        return $this->belongsTo('App\Category');
-    }
 
+    public  function  category(){
+        return $this->belongsToMany('App\Category');
+    }
     public  function  hardware(){
-        return $this->belongsTo('App\HardWare');
+        return $this->belongsToMany('App\HardWare');
     }
     public  function tag(){
         return $this->belongsToMany('App\Tag');
     }
-    public function cart(){
-        $this->belongsToMany('App\Cart');
+    public  function  laptop(){
+        return $this->belongsToMany('App\Laptop');
     }
 }

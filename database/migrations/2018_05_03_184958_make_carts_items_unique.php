@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetTable extends Migration
+class MakeCartsItemsUnique extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePasswordResetTable extends Migration
      */
     public function up()
     {
-//        Schema::create('password_resets', function (Blueprint $table) {
-//            $table->string('email')->index();
-//            $table->string('token');
-//            $table->timestamp('created_at')->nullable();
-//        });
+        Schema::table('carts', function (Blueprint $table) {
+            //
+            $table->string('laptop_id')->unique();
+
+        });
     }
 
     /**
@@ -27,6 +27,10 @@ class CreatePasswordResetTable extends Migration
      */
     public function down()
     {
-//        Schema::dropIfExists('password_resets');
+        Schema::table('carts', function (Blueprint $table) {
+            //
+//                    Schema::dropIfExists('carts');
+
+        });
     }
 }

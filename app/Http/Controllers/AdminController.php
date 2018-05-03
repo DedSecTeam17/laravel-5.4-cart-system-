@@ -8,14 +8,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 use App\Category;
 use App\Laptop;
 use App\Tag;
 
-class AdminController
+class AdminController extends  Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
     public  function adminPanel(){
