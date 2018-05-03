@@ -13,11 +13,16 @@ class HardwareController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
 
 
-        $hardwares=HardWare::all();
+        $hardwares=HardWare::orderBy('id','desc')->paginate(6);
         return view('hardware.index')->withHardwares($hardwares);
         //
     }

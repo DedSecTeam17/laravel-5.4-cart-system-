@@ -5,10 +5,9 @@
 
 @section('style')
     {!! Html::style('css/parsley.css') !!}
-@endsection
+    {!! Html::style('css/select2.min.css') !!}@endsection
 
 @section('content')
-
 
 
 
@@ -44,6 +43,76 @@
                     {{Form::label('os','OS')}}
                     {{Form::text('os',  null,['class'=>'form-control','style','required'=>''])}}
 
+                    <div class="input-group mt-5">
+                        <select class="custom-select  from-control" name="category_id" >
+                            @foreach($categories as  $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div><br>
+
+                    <div class="input-group mt-5">
+                        <select class="custom-select  from-control" name="hardware_id" >
+                            @foreach($hardwares as  $hardware)
+                                <option value="{{$hardware->id}}">
+                                    {{$hardware->cpu}},
+                                    {{$hardware->gpu}},
+                                    {{$hardware->ram}},
+                                    {{$hardware->hd}},
+                                    {{$hardware->ssd}},
+                                    {{$hardware->screen_quality}}
+
+                                </option>
+
+                            @endforeach
+                        </select>
+                    </div><br>
+
+
+
+                    {{Form::label('tags','Tags :')}}
+
+                    <div class="input-group mb-3">
+                        <select class="custom-select select2_mult from-control" name="tags[]" multiple="multiple">
+                            @foreach($tags as  $tag)
+                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+
+                        </select>
+                    </div><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     {{Form::label('image','Choose Your laptop Image')}}
                     {{Form::file('image')}}
                     {{Form::submit('Add',array('class'=>'btn btn-success btn-lg btn-block mt-5'))}}
@@ -67,7 +136,14 @@
     </div>
 @endsection
 
+@section("js")
 
-@section('js')
     {!! Html::script('js/parsley.min.js')  !!}
+    {!! Html::script('js/select2.min.js')  !!}
+
+    <script>
+        $(".select2_mult").select2();
+        $(".select2_mult").select2().val({!!   json_encode(($laptop->tag->pluck('id')))   !!}).trigger('change');
+
+    </script>
 @endsection

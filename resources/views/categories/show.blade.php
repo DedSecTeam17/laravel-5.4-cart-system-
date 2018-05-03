@@ -11,10 +11,7 @@
 
     <div class="row" style="margin-top: 10%">
 
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-8 ">
             <div class="jumbotron">
                 <h4>Create A new Category</h4>
                 <a href="{{route('categories.create')}}" class="btn btn-success">Create new Item</a>

@@ -66,7 +66,13 @@
 
 
 
+        <div class="text-center">
+            {{--{!! $posts->links(); !!}--}}
+            {{--//       php artisan vendor:publish --tag=laravel-pagination use for fancy pagination--}}
 
+            {!!$tags->links('vendor.pagination.bootstrap-4') !!}
+
+        </div>
 
 
 

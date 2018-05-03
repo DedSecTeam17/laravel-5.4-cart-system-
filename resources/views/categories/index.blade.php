@@ -11,10 +11,8 @@
 
     <div class="row" style="margin-top: 10%">
 
-        <div class="col-md-2">
 
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-8 offset-md-3">
             <div class="jumbotron">
                 <h4>Create A new Category</h4>
                 <a href="{{route('categories.create')}}" class="btn btn-success">Create new Item</a>
@@ -66,7 +64,13 @@
 
 
 
+        <div class="text-center">
+            {{--{!! $posts->links(); !!}--}}
+            {{--//       php artisan vendor:publish --tag=laravel-pagination use for fancy pagination--}}
 
+            {!!$categories->links('vendor.pagination.bootstrap-4') !!}
+
+        </div>
 
 
 

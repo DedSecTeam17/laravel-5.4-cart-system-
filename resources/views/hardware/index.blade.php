@@ -81,6 +81,13 @@
 
         </div>
 
+        <div class="text-center">
+            {{--{!! $posts->links(); !!}--}}
+            {{--//       php artisan vendor:publish --tag=laravel-pagination use for fancy pagination--}}
+
+            {!!$hardwares->links('vendor.pagination.bootstrap-4') !!}
+
+        </div>
 
     </div>
 

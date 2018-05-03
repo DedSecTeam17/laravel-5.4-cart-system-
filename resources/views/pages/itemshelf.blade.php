@@ -9,7 +9,6 @@
 
         .checked {
             color: gold;
-
         }
 
     </style>

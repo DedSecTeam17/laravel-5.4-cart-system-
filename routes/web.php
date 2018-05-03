@@ -17,7 +17,11 @@ Route::get('/helps',"PagesController@getHelps");
 
 Route::get('/contact', "PagesController@getContact");
 
-Route::get('/itemshelf', "PagesController@getAllItem");
+Route::get('/itemshelf', "PagesController@getAllItem")->name('admin_view');
+
+
+Route::get('/admin', "AdminController@adminPanel")->name('admin.index');
+
 
 
 Route::resource('laptops','LaptopController');
@@ -28,3 +32,7 @@ Route::resource('hardware','HardWareController');
 Route::resource('categories','CategoriesController');
 
 Route::resource('tags','TagController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

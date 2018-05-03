@@ -15,10 +15,8 @@
 
     <div class="row" style="margin-top: 10%">
 
-        <div class="col-md-2">
 
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-3">
 
             <div class="card">
                 <div class="card-header">

@@ -5,8 +5,10 @@
 <body
 >
 {{--navigation bar area --}}
-<div class="container">
+<div class="container-fluid">
     @include('partial._nav')
+    @include('partial._sidebar');
+
 
     @include('partial._message')
     @yield('content')

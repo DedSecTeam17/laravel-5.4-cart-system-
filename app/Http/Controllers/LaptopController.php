@@ -18,9 +18,14 @@ class LaptopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $laptops=Laptop::orderBy('id', 'desc')->Paginate(10);
+        $laptops=Laptop::orderBy('id', 'desc')->Paginate(6);
 
 
         return view('laptops.index')->withLaptops($laptops);
@@ -114,7 +119,10 @@ class LaptopController extends Controller
     public function edit($id)
     {
         $laptop=Laptop::find($id);
-        return view('laptops.edit')->withLaptop($laptop);
+        $categories=Category::all();
+        $hardwares=HardWare::all();
+        $tags=Tag::all();
+        return view('laptops.edit')->withLaptop($laptop)->withCategories($categories)->withHardwares($hardwares)->withTags($tags);
     }
 
     /**
@@ -164,11 +172,11 @@ class LaptopController extends Controller
         $laptop->save();
 
         $tags = $request->input('tags', []);
-        $laptop->tags()->sync($tags, true);
+        $laptop->tag()->sync($request->tags,true);
 
         Session::flash('sucess','your  item has been added into data base');
 
-        return redirect()->route('laptops.show',$laptop->id);
+        return redirect()->route('laptops.index',$laptop->id);
         //
     }
 

@@ -13,12 +13,12 @@ class CreateLaptopTagTable extends Migration
      */
     public function up()
     {
-        Schema::table('laptop_tag', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('laptop_tag');
-            $table->integer('tag_id');
-            //
-        });
+//        Schema::table('laptop_tag', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('laptop_tag');
+//            $table->integer('tag_id');
+//            //
+//        });
     }
 
     /**
@@ -28,8 +28,8 @@ class CreateLaptopTagTable extends Migration
      */
     public function down()
     {
-        Schema::table('laptop_tag', function (Blueprint $table) {
-            //
-        });
+//        Schema::table('laptop_tag', function (Blueprint $table) {
+//            //
+//        });
     }
 }

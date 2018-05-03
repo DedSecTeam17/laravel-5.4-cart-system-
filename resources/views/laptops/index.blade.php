@@ -66,13 +66,13 @@
                             <td>{{$laptop->updated_at}}</td>
                             <td>
                                 {!! Form::model($laptop,['route'=>['laptops.edit',$laptop->id],'files'=>'true','method'=>'GET']) !!}
-                                {!! Form::submit('Edit',['class'=>'btn btn-xs btn-info']) !!}
+                                {!! Form::submit('UPDATE',['class'=>'btn btn-xs btn-info']) !!}
                                 {!! Form::close() !!}
 
                             </td>
                             <td>
                                 {!! Form::open(['route'=>['laptops.destroy',$laptop->id],'files'=>'true','method'=>'DELETE']) !!}
-                                {!! Form::submit('Edit',['class'=>'btn btn-xs btn-danger']) !!}
+                                {!! Form::submit('DELETE',['class'=>'btn btn-xs btn-danger']) !!}
                                 {!! Form::close() !!}
 
                             </td>
@@ -87,6 +87,14 @@
 
                     </tbody>
                 </table>
+
+            </div>
+
+            <div class="text-center">
+                {{--{!! $posts->links(); !!}--}}
+                {{--//       php artisan vendor:publish --tag=laravel-pagination use for fancy pagination--}}
+
+                {!!$laptops->links('vendor.pagination.bootstrap-4') !!}
 
             </div>
 
