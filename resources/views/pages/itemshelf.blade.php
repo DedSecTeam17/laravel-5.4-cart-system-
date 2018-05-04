@@ -10,79 +10,147 @@
         .checked {
             color: gold;
         }
+        #mycard:hover{
+            border-color: orange;
+        }
     </style>
 @endsection
 
 
 
 @section('content')
-    @foreach($laptops as $laptop)
-        <hr>
-        <div class="row" style="margin-top: 10%">
-            <div class="col-md-2">
 
+    <hr>
+
+    <div class="card">
+
+        <div class="card-body">
+            <div class="row" style="margin-top: 10%">
+
+                @foreach($laptops as $laptop)
+                    <div class="col-md-3">
+                        <div class="card"  id="mycard" >
+                            <div class="card-header">
+                                <div>
+                                    <img src="{{asset('img/'.$laptop->image)}}" class="fluid-img img-thumbnail">
+                                </div>
+                            </div>
+                            <div class="card-body badge ">
+
+                                <a id="{{$laptop->id}}" href="{{route('laptops.show',$laptop->id)}}"
+                                   onmouseenter="mouse_enter('{{$laptop->id}}')"
+                                   onmouseleave="moues_leave('{{$laptop->id}}')">
+                                    <pre class='text text-center'>   {{$laptop->name}}</pre></a>
+                                <small>by HP</small>
+
+                                <p>{{$laptop->price.'$'}}<span>(86 used & new offers)</span></p>
+                                <small>Price may vary by color</small>
+                                <img src="{{asset('img/'.$laptop->image)}}" class="img-thumbnail" width="50"
+                                     height="70">
+
+                                <div class="badge badge-danger">
+                                    <p>{{$laptop->category->name}}</p>
+                                </div>
+
+
+                                {{----}}
+                                <div id="rate_stars" class="ml-3">
+                                    {{----}}
+                                    <span id="{{$laptop->id.'1'}}" class="fa fa-star "
+                                          onclick="getId('{{$laptop->id.'1'}}',1,1)"></span>
+                                    <span id="{{$laptop->id.'2'}}" class="fa fa-star "
+                                          onclick="getId('{{$laptop->id.'2'}}',2,2)"></span>
+                                    <span id="{{$laptop->id.'3'}}" class="fa fa-star "
+                                          onclick="getId('{{$laptop->id.'3'}}',3,3)"></span>
+                                    <span id="{{$laptop->id.'4'}}" class="fa fa-star"
+                                          onclick="getId('{{$laptop->id.'4'}}',4,4)"></span>
+                                    <span id="{{$laptop->id.'5'}}" class="fa fa-star"
+                                          onclick="getId('{{$laptop->id.'5'}}',5,5)"></span>
+                                    <hr>
+
+
+                                    <ul>
+                                        <li>{{$laptop->hardware->cpu}}</li>
+                                        <li>{{$laptop->hardware->gpu}}</li>
+                                        <li>{{$laptop->hardware->ram}}</li>
+                                        <li>{{$laptop->hardware->hd}}</li>
+                                        <li>{{$laptop->hardware->ssd}}</li>
+                                        <li>{{$laptop->hardware->screen_quality}}</li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer bg-dark">
+
+                                <a href="{{route('laptops.show',$laptop->id)}}"  class="btn btn-warning btn-lg btn-block "><i class="fas fa-cart-plus"
+                                                                                     style="color: white"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                {{--<div class="col-md-2">--}}
+                {{--<div>--}}
+                {{--<img src="{{asset('img/'.$laptop->image)}}" class="fluid-img img-thumbnail">--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4 badge badge-dark">--}}
+                {{--<a id="{{$laptop->id}}" href="{{route('laptops.show',$laptop->id)}}" onmouseenter="mouse_enter('{{$laptop->id}}')"--}}
+                {{--onmouseleave="moues_leave('{{$laptop->id}}')">--}}
+                {{--<b>   {{$laptop->name}}</b></a>--}}
+                {{--<small>by HP</small>--}}
+
+                {{--<p>{{$laptop->price.'$'}}<span>(86 used & new offers)</span></p>--}}
+                {{--<small>Price may vary by color</small>--}}
+                {{--<img src="{{asset('img/'.$laptop->image)}}" class="img-thumbnail" width="50" height="70">--}}
+                {{--<div class="badge badge-danger">--}}
+                {{--<p>{{$laptop->category->name}}</p>--}}
+
+
+
+
+                {{--</div>--}}
+
+                {{--<div class="col-md-4">--}}
+                {{--<div id="rate_stars" class="ml-3">--}}
+                {{--<span id="{{$laptop->id.'1'}}" class="fa fa-star "--}}
+                {{--onclick="getId('{{$laptop->id.'1'}}',1,1)"></span>--}}
+                {{--<span id="{{$laptop->id.'2'}}" class="fa fa-star "--}}
+                {{--onclick="getId('{{$laptop->id.'2'}}',2,2)"></span>--}}
+                {{--<span id="{{$laptop->id.'3'}}" class="fa fa-star "--}}
+                {{--onclick="getId('{{$laptop->id.'3'}}',3,3)"></span>--}}
+                {{--<span id="{{$laptop->id.'4'}}" class="fa fa-star" onclick="getId('{{$laptop->id.'4'}}',4,4)"></span>--}}
+                {{--<span id="{{$laptop->id.'5'}}" class="fa fa-star" onclick="getId('{{$laptop->id.'5'}}',5,5)"></span>--}}
+
+                {{--</div>--}}
+                {{--<ul class="  ">--}}
+                {{--<li    >{{$laptop->hardware->cpu}}</li>--}}
+                {{--<li    >{{$laptop->hardware->gpu}}</li>--}}
+                {{--<li    >{{$laptop->hardware->ram}}</li>--}}
+                {{--<li    >{{$laptop->hardware->hd}}</li>--}}
+                {{--<li    >{{$laptop->hardware->ssd}}</li>--}}
+                {{--<li    >{{$laptop->hardware->screen_quality}}</li>--}}
+                {{--</ul>--}}
+
+                {{--</div>--}}
+                <hr>
             </div>
-
-
-            <div class="col-md-2">
-                <div>
-                    <img src="{{asset('img/'.$laptop->image)}}" class="fluid-img img-thumbnail">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <a id="{{$laptop->id}}" href="{{route('laptops.show',$laptop->id)}}" onmouseenter="mouse_enter('{{$laptop->id}}')"
-                   onmouseleave="moues_leave('{{$laptop->id}}')">
-                    <b>   {{$laptop->name}}</b></a>
-                <small>by HP</small>
-
-                <p>{{$laptop->price.'$'}}<span>(86 used & new offers)</span></p>
-                <small>Price may vary by color</small>
-                <img src="{{asset('img/'.$laptop->image)}}" class="img-thumbnail" width="50" height="70">
-                <div class="badge badge-dark">
-                    <p>{{$laptop->category->name}}</p>
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div id="rate_stars" class="ml-3">
-                    <span id="{{$laptop->id.'1'}}" class="fa fa-star "
-                          onclick="getId('{{$laptop->id.'1'}}',1,1)"></span>
-                    <span id="{{$laptop->id.'2'}}" class="fa fa-star "
-                          onclick="getId('{{$laptop->id.'2'}}',2,2)"></span>
-                    <span id="{{$laptop->id.'3'}}" class="fa fa-star "
-                          onclick="getId('{{$laptop->id.'3'}}',3,3)"></span>
-                    <span id="{{$laptop->id.'4'}}" class="fa fa-star" onclick="getId('{{$laptop->id.'4'}}',4,4)"></span>
-                    <span id="{{$laptop->id.'5'}}" class="fa fa-star" onclick="getId('{{$laptop->id.'5'}}',5,5)"></span>
-
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item">{{$laptop->hardware->cpu}}</li>
-                    <li class="list-group-item">{{$laptop->hardware->gpu}}</li>
-                    <li class="list-group-item">{{$laptop->hardware->ram}}</li>
-                    <li class="list-group-item">{{$laptop->hardware->hd}}</li>
-                    <li class="list-group-item">{{$laptop->hardware->ssd}}</li>
-                    <li class="list-group-item">{{$laptop->hardware->screen_quality}}</li>
-
-
-
-                </ul>
-
-            </div>
-            <hr>
         </div>
-        <button type="button" class="btn btn-dark btn-xs" data-toggle="modal" data-target="#pop">pop</button>
-        <div class="modal fade" id="pop">
 
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
+    </div>
 
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
+    <button type="button" class="btn btn-dark btn-xs" data-toggle="modal" data-target="#pop">pop</button>
+    <div class="modal fade" id="pop">
 
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
 
                 </div>
 
@@ -90,13 +158,15 @@
 
         </div>
 
+    </div>
 
 
 
 
 
 
-    @endforeach
+
+
 
 
 

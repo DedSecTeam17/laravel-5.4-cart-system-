@@ -23,6 +23,8 @@ Route::get('/itemshelf', "PagesController@getAllItem")->name('admin_view');
 Route::get('/admin', "AdminController@adminPanel")->name('admin.index');
 
 
+Route::post('/send','PagesController@send')->name('send_email');
+
 
 Route::resource('laptops','LaptopController');
 
