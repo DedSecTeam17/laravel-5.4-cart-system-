@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MakeCartsItemsUnique extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class MakeCartsItemsUnique extends Migration
      */
     public function up()
     {
-        Schema::table('carts', function (Blueprint $table) {
-            //
-//            $table->string('laptop_id')->unique();
-
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('user_id');
+            $table->string('comment');
+            $table->string('laptop_id');
+            $table->timestamps();
         });
     }
 
@@ -27,10 +29,6 @@ class MakeCartsItemsUnique extends Migration
      */
     public function down()
     {
-        Schema::table('carts', function (Blueprint $table) {
-            //
-//                    Schema::dropIfExists('carts');
-
-        });
+        Schema::dropIfExists('comments');
     }
 }

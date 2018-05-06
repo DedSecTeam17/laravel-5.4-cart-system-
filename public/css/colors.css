@@ -1,0 +1,30 @@
+.bg-gradient-info {
+    background: linear-gradient(to right, #52B3D9, #3A539B);
+    color: white;
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(to right, #F4B350, #F2784B);
+    color: white;
+
+}
+
+.bg-gradient-danger {
+    background: linear-gradient(to right, #E08283, #CF000F);
+    color: white;
+
+}
+
+.bg-gradient-success {
+    background: linear-gradient(to right, #36D7B7, #2ABB9B);
+    color: white;
+
+}
+
+.bg-less-darker {
+    background-color: #22313F;
+    color: white;
+}
+.soical_item:hover {
+    color: orange;
+}

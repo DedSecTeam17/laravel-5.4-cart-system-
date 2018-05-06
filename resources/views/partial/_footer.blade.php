@@ -1,11 +1,10 @@
-<style>
-    .soical_item:hover {
-        color: orange;
-    }
-</style>
 
-<hr>
-<footer class="bg-dark " style="color: white;">
+@section('style')
+    {!! Html::style('css/colors.css') !!}
+@endsection
+
+
+<footer   style="color: white;    background-color: #22313F;">
 
     <div class="container-fluid">
 
@@ -27,7 +26,7 @@
                             <input type="email" name="email" placeholder="enter your name"
                                    class="form-control bg-dark" style="color: white;">
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Send</button>
+                        <button type="submit" class="btn  btn-lg btn-block bg-gradient-success" style="border-radius: 30px"><i class="fas fa-paper-plane"></i></button>
                         {{Form::close()}}
 
                     </div>

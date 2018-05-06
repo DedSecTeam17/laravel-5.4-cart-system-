@@ -42,6 +42,8 @@ Route::resource('categories','CategoriesController');
 
 Route::resource('tags','TagController');
 
+Route::resource('comments','CommentController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
