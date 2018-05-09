@@ -3,18 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Category;
+use App\HardWare;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class CartController extends Controller
 {
+    private $i=0;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         //
+        $username=Auth::user()->name;
+        $carts=Cart::all()->where('user_name',$username);
+
+        $hardwares[]=new HardWare();
+        $categories[]= new Category();
+
+        $hard=new HardWare();
+        $category=new Category();
+//        hardware area
+        foreach ($carts as  $cart){
+            $hardwares[$this->i++]=$hard::find($cart->hardware_id);
+            $categories[$this->i++]=$category::find($cart->category_id);
+        }
+//        reset counter
+        $this->i=0;
+
+
+
+
+// categories
+
+
+
+
+        return view('carts.index')->withHardwares($hardwares)->withCategories($categories)->withCarts($carts);
+
     }
 
     /**
@@ -25,6 +62,7 @@ class CartController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -45,11 +83,14 @@ class CartController extends Controller
         $cart_item->laptops_id=$request->laptop_id;
         $cart_item->category_id=$request->category_id;
         $cart_item->hardware_id=$request->hardware_id;
+        $cart_item->user_name=$request->user_name;
 //        default values
         $cart_item->quantity=$request->quantity;
 
 
         $cart_item->save();
+
+        return redirect()->route('carts.index');
 
     }
 
